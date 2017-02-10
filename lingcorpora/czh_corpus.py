@@ -4,9 +4,8 @@ from selenium import webdriver
 CORP_URL='https://kontext.korpus.cz'
 CLASS_NAMES = {'word':'query', 'corpus':'qselector'}
 
-
 def get_page_src(*args):
-    _driver = _driver_init()
+    _driver = _driver_init('PhantomJS')
     _arg_list = _make_keys_lists(args)
     _send_all_keys_to_forms(_driver, CLASS_NAMES.values(), _arg_list)
     _wait_till_load(_driver)
@@ -48,7 +47,7 @@ def _driver_init(driver_type='Chrome'):
 
 
 def main():
-    get_page_src('tata','Basic')
+    print(get_page_src('tata','Basic'))
 
 if __name__ == '__main__':
     main()
